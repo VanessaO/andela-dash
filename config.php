@@ -1,15 +1,14 @@
 <?php 
   $servername = "localhost";
   $username = "root";
-  $password = "andeladash";
-  $dbname = "andelasdash_db";
+  $password = "password";
+  $dbname = "andeladash_db";
 
   //Create Connection
   $con = mysqli_connect($servername, $username, $password, $dbname);
 
-  //Check Connection
+  //Test Connecton
   if (!$con) {
-    die("Connection failed: " . mysql_connect_error());
+    die("Connection Failed: " . mysqli_error());
   }
-
 ?>
