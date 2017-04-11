@@ -1,33 +1,15 @@
-<?php include_once('templates/head.php');?>
-<?php include_once('templates/header.php');?>
-<?php include_once('templates/sidebar.php');?>
+<?php 
+include_once('config.php');
 
-    <script src="plugins/jQuery/jquery-2.2.3.min.js"></script>
-    <script src="dist/js/app.min.js"></script>
-    <script src="bootstrap/js/bootstrap.min.js"></script>
-    <!-- DataTables -->
-    <script src="plugins/datatables/jquery.dataTables.min.js"></script>
-    <script src="plugins/datatables/dataTables.bootstrap.min.js"></script>
-    <!-- SlimScroll -->
-    <script src="plugins/slimScroll/jquery.slimscroll.min.js"></script>
-    <!-- FastClick -->
-    <script src="plugins/fastclick/fastclick.js"></script>
-    <!-- AdminLTE App -->
-    <script src="dist/js/app.min.js"></script>
-    <!-- AdminLTE for demo purposes -->
-    <script src="dist/js/demo.js"></script>
-    <!-- page script -->
-    <script>
-      $(function () {
-        $("#example1").DataTable();
-        $('#example2').DataTable({
-          "paging": true,
-          "lengthChange": false,
-          "searching": false,
-          "ordering": true,
-          "info": true,
-          "autoWidth": false
-        });
-      });
-    </script>
-<?php include_once('footer.php');?>
+$username = $_POST["username"];
+$first_name = $_POST["first_name"];
+$last_name = $_POST["last_name"];
+$email = $_POST["email"];
+$country = $_POST["country"];
+$city = $_POST["city"];
+
+$admin_sql = "INSERT INTO admin (Username, First_Name, Last_Name, Email, Country, City) VALUES ( '".$username."', '".$first_name."', '".$last_name."', '".$email."', '".$country."', '".$city."')";
+
+mysqli_query($con,$admin_sql);
+header("Location: admin.php?")
+?>

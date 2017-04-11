@@ -1,7 +1,7 @@
 <?php 
   $servername = "localhost";
   $username = "root";
-  $password = "password";
+  $password = "";
   $dbname = "andeladash_db";
 
   //Create Connection
