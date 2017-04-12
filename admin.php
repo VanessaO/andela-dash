@@ -244,7 +244,7 @@
         </div>
         <!--right column-->
         <div class="col-md-6">
-          <p>testing</p>
+          <canvas id="countryChart" height="350" width="510"></canvas>
         </div>
       </div>
     </section>
@@ -519,6 +519,9 @@
     <script src="dist/js/app.min.js"></script>
     <!-- AdminLTE for demo purposes -->
     <script src="dist/js/demo.js"></script>
+    <!-- ChartJS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
     <!-- page script -->
     <script>
       $(function () {
@@ -531,6 +534,56 @@
           "info": true,
           "autoWidth": false
         });
+      });
+
+      $.ajax({
+        type: 'POST',
+        url: 'country.php',
+        success: function(data) {
+          //console.log(data);
+          pieChartData = data; //alert(JSON.stringify(data));
+        
+          var ctx = document.getElementById("countryChart").getContext('2d');
+          var myChart = new Chart(ctx, {  
+           "type":"pie",
+           "data":{  
+              "labels":[  
+                 "United States",
+                 "France",
+                 "Nigeria",
+                 "Ghana",
+                 ""
+              ],
+              "datasets":[  
+                 {  
+                    "data":[  
+                       "1",
+                       "1",
+                       "1",
+                       "1",
+                       "1"
+                    ],
+                    "backgroundColor":[  
+                       "#5AD3D1",
+                       "#FF6384",
+                       "#36A2EB",
+                       "#FFCE56"
+                    ],
+                    "hoverBackgroundColor":[  
+                       "#5AD3D1",
+                       "#FF6384",
+                       "#36A2EB",
+                       "#FFCE56"
+                    ]
+                 }
+              ]
+           },
+           "options":{  
+              "responsive":false
+           }
+        }
+        );
+        }
       });
     </script>
 <?php include_once('footer.php');?>
