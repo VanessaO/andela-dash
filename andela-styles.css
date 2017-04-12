@@ -1,0 +1,13 @@
+.skin-blue .main-header .navbar {
+  background-color: #3359df;
+}
+.skin-blue .main-header .logo {
+  background-color: #224ad7;
+}
+.introduction {
+  color: #fff;
+  padding: 10px;
+}
+.introduction i {
+  margin: 0.25em 0.5em 0 0.5em;
+}
