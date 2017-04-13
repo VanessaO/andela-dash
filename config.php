@@ -1,4 +1,6 @@
 <?php 
+  //local dev connection
+  /*
   $servername = "localhost";
   $username = "root";
   $password = "";
@@ -9,6 +11,22 @@
 
   //Test Connecton
   if (!$con) {
+    die("Connection Failed: " . mysqli_error());
+  }
+  */
+
+  //Heroku ClearDB connection
+
+  $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+
+  $server = $url["host"];
+  $username = $url["user"];
+  $password = $url["pass"];
+  $db = substr($url["path"], 1);
+
+  $conn = new mysqli($server, $username, $password, $db);
+
+  if (!$conn) {
     die("Connection Failed: " . mysqli_error());
   }
 ?>
