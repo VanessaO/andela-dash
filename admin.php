@@ -128,7 +128,7 @@
                 <tbody>
                   <?php include_once('config.php');
                     $admin_sql = 'SELECT * FROM admin';
-                    $result = mysqli_query($con,$admin_sql);
+                    $result = mysqli_query($conn,$admin_sql);
                     $count = 0;
                     while($row = mysqli_fetch_assoc($result)){
                       $count++;
